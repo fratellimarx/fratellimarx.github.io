@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Links e risorse utili sui Fratelli Marx - siti web, video, articoli e molto altro">
+    <title>Links - I Fratelli Marx</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --dark: #1a1a1a;
+            --cream: #f4f1ea;
+            --accent: #8b7355;
+            --shadow: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Decorative Film Strip Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: -50px;
+            width: 40px;
+            height: 100vh;
+            background: 
+                repeating-linear-gradient(
+                    to bottom,
+                    var(--dark) 0px,
+                    var(--dark) 20px,
+                    transparent 20px,
+                    transparent 25px
+                ),
+                linear-gradient(to right, var(--dark) 0%, var(--dark) 60%, transparent 100%);
+            opacity: 0.15;
+            z-index: 0;
+            animation: filmRoll 20s linear infinite;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            right: -50px;
+            width: 40px;
+            height: 100vh;
+            background: 
+                repeating-linear-gradient(
+                    to bottom,
+                    var(--dark) 0px,
+                    var(--dark) 20px,
+                    transparent 20px,
+                    transparent 25px
+                ),
+                linear-gradient(to left, var(--dark) 0%, var(--dark) 60%, transparent 100%);
+            opacity: 0.15;
+            z-index: 0;
+            animation: filmRoll 20s linear infinite reverse;
+        }
+
+        @keyframes filmRoll {
+            from { transform: translateY(0); }
+            to { transform: translateY(25px); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            padding: 2rem 0;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            gap: 0;
+        }
+
+        nav a {
+            font-family: 'Playfair Display', serif;
+            color: var(--cream);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s ease;
+            border-right: 1px solid rgba(244, 241, 234, 0.2);
+        }
+
+        nav a:first-child {
+            border-left: 1px solid rgba(244, 241, 234, 0.2);
+        }
+
+        nav a.active {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        /* Page Title */
+        .page-header {
+            max-width: 1200px;
+            margin: 4rem auto 3rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::before {
+            content: '🔗';
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        /* Links Container */
+        .links-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .links-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .links-list {
+            background: white;
+            box-shadow: 0 5px 20px var(--shadow);
+            border-top: 4px solid var(--gold);
+            overflow: hidden;
+        }
+
+        .link-item {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--cream);
+            transition: background-color 0.3s ease;
+        }
+
+        .link-item:last-child {
+            border-bottom: none;
+        }
+
+        .link-item:hover {
+            background-color: #faf9f6;
+        }
+
+        .link-item a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .link-item a:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .link-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-style: italic;
+            margin-left: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 6rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body::before,
+            body::after {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                border: none;
+                border-bottom: 1px solid rgba(244, 241, 234, 0.2);
+            }
+
+            .page-title::before {
+                display: none;
+            }
+
+            .link-item a {
+                font-size: 1.1rem;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">I FRATELLI MARX</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰ MENU</button>
+            <nav id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="filmografia.html">Filmografia</a>
+                <a href="links.html" class="active">Links</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1 class="page-title">Links Utili</h1>
+        <p class="page-subtitle">Risorse selezionate per gli appassionati dei Marx Brothers</p>
+    </div>
+
+    <div class="links-container">
+        <!-- Categoria 1: Informazione Generale -->
+        <section class="links-category">
+            <h2 class="category-title">📖 Informazione Generale</h2>
+            <div class="links-list">
+                <div class="link-item">
+                    <a href="https://it.wikipedia.org/wiki/Fratelli_Marx" target="_blank">Fratelli Marx <span class="link-label">[IT]</span></a> - Wikipedia
+                </div>
+                <div class="link-item">
+                    <a href="https://www.treccani.it/enciclopedia/fratelli-marx/" target="_blank">Fratelli Marx <span class="link-label">[IT]</span></a> - Treccani
+                </div>
+                <div class="link-item">
+                    <a href="https://en.wikipedia.org/wiki/Marx_Brothers" target="_blank">Marx Brothers <span class="link-label">[EN]</span></a> - Wikipedia
+                </div>
+                <div class="link-item">
+                    <a href="https://www.britannica.com/topic/Marx-Brothers" target="_blank">Marx Brothers <span class="link-label">[EN]</span></a> - Britannica
+                </div>
+            </div>
+        </section>
+
+       
+       <!-- Categoria 3: Video -->
+        <section class="links-category">
+            <h2 class="category-title">🎥 Video</h2>
+            <div class="links-list">
+                <div class="link-item">
+                    <a href="https://www.youtube.com/results?search_query=Marx+Brothers" target="_blank">The Marx Brothers</a> - YouTube
+                </div>
+                <div class="link-item">
+                    <a href="https://www.youtube.com/results?search_query=Groucho+Marx" target="_blank">Groucho Marx</a> - YouTube
+                </div>
+                <div class="link-item">
+                    <a href="https://www.imdb.com/it/name/nm2580347/" target="_blank">The Marx Brothers <span class="link-label">[EN]</span></a> - IMDB
+                </div>
+                <div class="link-item">
+                    <a href="https://www.justwatch.com/it/cerca?q=Groucho%20Marx&person_id=31157" target="_blank">Fratelli Marx</a> - Justwatch
+                </div>
+            </div>
+        </section>
+
+        <!-- Categoria 4: Personaggi Singoli -->
+        <section class="links-category">
+            <h2 class="category-title">👤 Personaggi Singoli</h2>
+            <div class="links-list">
+                <div class="link-item">
+                    <a href="https://it.wikipedia.org/wiki/Groucho_Marx" target="_blank">Groucho Marx <span class="link-label">[IT]</span></a> - Wikipedia
+                </div>
+                <div class="link-item">
+                    <a href="https://en.wikipedia.org/wiki/Groucho_Marx" target="_blank">Groucho Marx <span class="link-label">[EN]</span></a> - Wikipedia
+                </div>
+                <div class="link-item">
+                    <a href="https://it.wikipedia.org/wiki/Harpo_Marx" target="_blank">Harpo Marx <span class="link-label">[IT]</span></a> - Wikipedia
+                </div>
+                <div class="link-item">
+                    <a href="https://en.wikipedia.org/wiki/Harpo_Marx" target="_blank">Harpo Marx <span class="link-label">[EN]</span></a> - Wikipedia
+                </div>
+                <div class="link-item">
+                    <a href="https://it.wikipedia.org/wiki/Chico_Marx" target="_blank">Chico Marx <span class="link-label">[IT]</span></a> - Wikipedia
+                </div>
+                <div class="link-item">
+                    <a href="https://en.wikipedia.org/wiki/Chico_Marx" target="_blank">Chico Marx <span class="link-label">[EN]</span></a> - Wikipedia
+                </div>
+            </div>
+        </section>
+
+        <!-- Categoria 5: Film e Libri -->
+        <section class="links-category">
+            <h2 class="category-title">🛍️ Film e Libri</h2>
+            <div class="links-list">
+                <div class="link-item">
+                    <a href="https://www.amazon.it/s?k=Fratelli+Marx&i=dvd&__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3BD5VUMOJLQJ6&sprefix=fratelli+marx%2Cdvd%2C236&ref=nb_sb_noss_2" target="_blank">Fratelli Marx <span class="link-label">[Film e TV]</span></a> - Amazon.it
+                </div>
+                <div class="link-item">
+                    <a href="https://www.amazon.it/s?k=Marx+Brothers&i=dvd&__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=24AZ2J9S73SJU&sprefix=marx+brother%2Cdvd%2C235&ref=nb_sb_noss_2" target="_blank">Marx Brothers <span class="link-label">[Film e TV]</span></a> - Amazon.it
+                </div>
+                <div class="link-item">
+                    <a href="https://www.amazon.it/s?k=Fratelli+Marx&i=stripbooks&__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1790TUHJ721R&sprefix=fratelli+marx%2Cstripbooks%2C232&ref=nb_sb_noss_2" target="_blank">Fratelli Marx <span class="link-label">[Libri]</span></a> - Amazon.it
+                </div>
+                <div class="link-item">
+                    <a href="https://www.amazon.it/s?k=Marx+Brothers&i=stripbooks&__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=HM90HZDTH00I&sprefix=marx+brother%2Cstripbooks%2C232&ref=nb_sb_noss_2" target="_blank">Marx Brothers <span class="link-label">[Libri]</span></a> - Amazon.it
+                </div>
+            </div>
+        </section>
+
+        <!-- Categoria 6: Archivi Storici -->
+        <section class="links-category">
+            <h2 class="category-title">📚 Archivi Storici</h2>
+            <div class="links-list">
+                <div class="link-item">
+                    <a href="https://lantern.mediahist.org/catalog?q=The+Marx+Brothers" target="_blank">The Marx Brothers <span class="link-label">[EN]</span></a> - Media History Digital Library
+                </div>
+                <div class="link-item">
+                    <a href="https://archive.org/search.php?query=Marx+Brothers" target="_blank">Marx Brothers <span class="link-label">[EN]</span></a> - Internet Archive
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Copyright © 2026 Fratellimarx.it</p>
+            <p>fratellimarx.it@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mainNav');
+            const toggle = document.querySelector('.menu-toggle');
+
+            if (nav.classList.contains('active') && 
+                !nav.contains(event.target) && 
+                !toggle.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

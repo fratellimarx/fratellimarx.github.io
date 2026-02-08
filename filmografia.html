@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Filmografia completa dei Fratelli Marx - tutti i film dei leggendari Marx Brothers">
+    <title>Filmografia - I Fratelli Marx</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --dark: #1a1a1a;
+            --cream: #f4f1ea;
+            --accent: #8b7355;
+            --shadow: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Decorative Film Strip Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: -50px;
+            width: 40px;
+            height: 100vh;
+            background: 
+                repeating-linear-gradient(
+                    to bottom,
+                    var(--dark) 0px,
+                    var(--dark) 20px,
+                    transparent 20px,
+                    transparent 25px
+                ),
+                linear-gradient(to right, var(--dark) 0%, var(--dark) 60%, transparent 100%);
+            opacity: 0.15;
+            z-index: 0;
+            animation: filmRoll 20s linear infinite;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            right: -50px;
+            width: 40px;
+            height: 100vh;
+            background: 
+                repeating-linear-gradient(
+                    to bottom,
+                    var(--dark) 0px,
+                    var(--dark) 20px,
+                    transparent 20px,
+                    transparent 25px
+                ),
+                linear-gradient(to left, var(--dark) 0%, var(--dark) 60%, transparent 100%);
+            opacity: 0.15;
+            z-index: 0;
+            animation: filmRoll 20s linear infinite reverse;
+        }
+
+        @keyframes filmRoll {
+            from { transform: translateY(0); }
+            to { transform: translateY(25px); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            padding: 2rem 0;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            gap: 0;
+        }
+
+        nav a {
+            font-family: 'Playfair Display', serif;
+            color: var(--cream);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s ease;
+            border-right: 1px solid rgba(244, 241, 234, 0.2);
+        }
+
+        nav a:first-child {
+            border-left: 1px solid rgba(244, 241, 234, 0.2);
+        }
+
+        nav a.active {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        /* Page Title */
+        .page-header {
+            max-width: 1200px;
+            margin: 4rem auto 3rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::before {
+            content: '🎬';
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        /* Films Container */
+        .films-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .films-section {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .section-hint {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-style: italic;
+    text-align: left;
+    margin: -1.5rem 0 2rem 0;
+    font-weight: 300;
+}
+
+        .films-list {
+            background: white;
+            box-shadow: 0 5px 20px var(--shadow);
+            border-top: 4px solid var(--gold);
+            overflow: hidden;
+        }
+
+        .film-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            border-bottom: 1px solid var(--cream);
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .film-item:last-child {
+            border-bottom: none;
+        }
+
+        .film-item:hover {
+            background-color: #faf9f6;
+        }
+
+        .film-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-align: center;
+        }
+
+        .film-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .film-info h3 a {
+            color: var(--dark);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .film-info h3 a:hover {
+            border-bottom-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .film-original {
+            font-style: italic;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .film-italian {
+            color: var(--dark);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 6rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body::before,
+            body::after {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                border: none;
+                border-bottom: 1px solid rgba(244, 241, 234, 0.2);
+            }
+
+            .page-title::before {
+                display: none;
+            }
+
+            .film-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .film-year {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">I FRATELLI MARX</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰ MENU</button>
+            <nav id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="filmografia.html" class="active">Filmografia</a>
+                <a href="links.html">Links</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1 class="page-title">Filmografia</h1>
+        <p class="page-subtitle">La carriera cinematografica completa dei Marx Brothers</p>
+    </div>
+
+    <div class="films-container">
+        <!-- Main Films Section -->
+        <section class="films-section">
+            <h2 class="section-title">Film dei Fratelli Marx</h2>
+            <p class="section-hint">Clicca sui titoli originali per leggere la scheda del film su Wikipedia</p>
+            <div class="films-list">
+                <div class="film-item">
+                    <div class="film-year">1929</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Le_noci_di_cocco" target="_blank">The Cocoanuts</a></h3>
+                        <p class="film-italian">Le Noci di cocco</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1930</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Animal_Crackers_(film_1930)" target="_blank">Animal Crackers</a></h3>
+                        <p class="film-italian">Animal Crackers</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1931</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Monkey_Business_-_Quattro_folli_in_alto_mare" target="_blank">Monkey Business</a></h3>
+                        <p class="film-italian">Piccoli imbrogli</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1932</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/I_fratelli_Marx_al_college" target="_blank">Horse Feathers</a></h3>
+                        <p class="film-italian">Piume di cavallo</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1933</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/La_guerra_lampo_dei_Fratelli_Marx" target="_blank">Duck Soup</a></h3>
+                        <p class="film-italian">La guerra lampo dei Fratelli Marx</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1935</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Una_notte_all%27opera" target="_blank">A Night at the Opera</a></h3>
+                        <p class="film-italian">Una notte all'opera</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1937</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Un_giorno_alle_corse" target="_blank">A Day at the Races</a></h3>
+                        <p class="film-italian">Un giorno alle corse</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1938</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Servizio_in_camera" target="_blank">Room Service</a></h3>
+                        <p class="film-italian">Servizio in camera</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1939</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Tre_pazzi_a_zonzo" target="_blank">At The Circus</a></h3>
+                        <p class="film-italian">Tre pazzi a zonzo</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1940</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/I_cowboys_del_deserto" target="_blank">Go West</a></h3>
+                        <p class="film-italian">I cowboy nel deserto</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1941</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Il_bazar_delle_follie" target="_blank">The Big Store</a></h3>
+                        <p class="film-italian">Il bazar delle follie</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1946</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Una_notte_a_Casablanca" target="_blank">A Night in Casablanca</a></h3>
+                        <p class="film-italian">Una notte a Casablanca</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1950</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Una_notte_sui_tetti" target="_blank">Love Happy</a></h3>
+                        <p class="film-italian">Una notte sui tetti</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Appearances Section -->
+        <section class="films-section">
+            <h2 class="section-title">Altre Interpretazioni e Partecipazioni</h2>
+            <div class="films-list">
+                <div class="film-item">
+                    <div class="film-year">1925</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Troppi_baci" target="_blank">Too Many Kisses</a></h3>
+                        <p class="film-italian">Troppi baci</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1926</div>
+                    <div class="film-info">
+                        <h3>Humorisk</h3>
+                        <p class="film-italian">Humorisk</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1932</div>
+                    <div class="film-info">
+                        <h3>Hollywood on Parade</h3>
+                        <p class="film-italian">Hollywood on Parade</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1933</div>
+                    <div class="film-info">
+                        <h3>Hollywood on Parade No. A-8</h3>
+                        <p class="film-italian">Hollywood on Parade No. A-8</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1935</div>
+                    <div class="film-info">
+                        <h3>La Fiesta de Santa Barbara</h3>
+                        <p class="film-italian">La Fiesta de Santa Barbara</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1937</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Il_re_e_la_ballerina" target="_blank">The King and the Chorus Girl</a></h3>
+                        <p class="film-italian">Il Re e la ballerina</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1943</div>
+                    <div class="film-info">
+                        <h3>Screen Snapshots No. 2</h3>
+                        <p class="film-italian">Screen Snapshots No. 2</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1943</div>
+                    <div class="film-info">
+                        <h3>Screen Snapshots No. 8</h3>
+                        <p class="film-italian">Screen Snapshots No. 8</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1943</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/La_taverna_delle_stelle" target="_blank">Stage Door Canteen</a></h3>
+                        <p class="film-italian">La taverna delle stelle</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1945</div>
+                    <div class="film-info">
+                        <h3>All-Star Bond Rally</h3>
+                        <p class="film-italian">All-Star Bond Rally</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1947</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Copacabana_(film)" target="_blank">Copacabana</a></h3>
+                        <p class="film-italian">Copacabana</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1948</div>
+                    <div class="film-info">
+                        <h3>It's Only Money</h3>
+                        <p class="film-italian">E' solo denaro</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1950</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Assedio_d%27amore" target="_blank">Mr. Music</a></h3>
+                        <p class="film-italian">Assedio d'amore</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1951</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Questi_dannati_quattrini" target="_blank">Double Dinamite</a></h3>
+                        <p class="film-italian">Questi dannati quattrini</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1952</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Una_ragazza_in_ogni_porto" target="_blank">A Girl in Every Port</a></h3>
+                        <p class="film-italian">Una ragazza in ogni porto</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1957</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/L%27inferno_ci_accusa" target="_blank">The Story of Mankind</a></h3>
+                        <p class="film-italian">L'inferno ci accusa</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1957</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/La_bionda_esplosiva" target="_blank">Will Success Spoil Rock Hunter</a></h3>
+                        <p class="film-italian">La bionda esplosiva</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1958</div>
+                    <div class="film-info">
+                        <h3>Showdown at Ulcer Gulch</h3>
+                        <p class="film-italian">Showdown at Ulcer Gulch</p>
+                    </div>
+                </div>
+                <div class="film-item">
+                    <div class="film-year">1968</div>
+                    <div class="film-info">
+                        <h3><a href="https://it.wikipedia.org/wiki/Skidoo_(film)" target="_blank">Skidoo!</a></h3>
+                        <p class="film-italian">Skidoo!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+    <div class="footer-content">
+        <p>Copyright © 2026 Fratellimarx.it</p>
+        <p>fratellimarx.it@gmail.com</p>
+    </div>
+</footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mainNav');
+            const toggle = document.querySelector('.menu-toggle');
+
+            if (nav.classList.contains('active') && 
+                !nav.contains(event.target) && 
+                !toggle.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
