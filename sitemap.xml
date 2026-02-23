@@ -9,13 +9,6 @@
   </url>
 
   <url>
-    <loc>https://fratellimarx.github.io/biografie.html</loc>
-    <lastmod>2026-02-16</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://fratellimarx.github.io/filmografia.html</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>yearly</changefreq>
@@ -23,7 +16,7 @@
   </url>
 
   <url>
-    <loc>https://fratellimarx.github.io/contatti.html</loc>
+    <loc>https://fratellimarx.github.io/links.html</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
