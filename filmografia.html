@@ -375,6 +375,121 @@
                 text-align: left;
             }
         }
+		
+		/* COOKIE BANNER STYLES */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #f4f1ea;
+    padding: 2rem;
+    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-family: 'Cormorant Garamond', serif;
+    border-top: 3px solid #d4af37;
+}
+
+.cookie-content {
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cookie-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+}
+
+.cookie-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #f4f1ea;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    min-width: 300px;
+    justify-content: flex-end;
+}
+
+.cookie-btn {
+    padding: 0.8rem 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cookie-btn-accept {
+    background: #d4af37;
+    color: #1a1a1a;
+}
+
+.cookie-btn-accept:hover {
+    background: #f4f1ea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+}
+
+.cookie-btn-reject {
+    background: transparent;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+}
+
+.cookie-btn-reject:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cookie-banner {
+        padding: 1.5rem;
+    }
+
+    .cookie-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cookie-content p {
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .cookie-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .cookie-content h3 {
+        font-size: 1.2rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -661,5 +776,60 @@
             }
         });
     </script>
+	
+	<!-- COOKIE BANNER -->
+<div id="cookieBanner" class="cookie-banner">
+    <div class="cookie-content">
+        <h3>🍪 Politica sui Cookie</h3>
+        <p>Utilizziamo i cookie per migliorare la tua esperienza nel nostro sito. Continuando a navigare, accetti l'uso dei cookie.</p>
+        <div class="cookie-buttons">
+            <button id="rejectCookies" class="cookie-btn cookie-btn-reject">Rifiuta</button>
+            <button id="acceptCookies" class="cookie-btn cookie-btn-accept">Accetta</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Gestione de Cookies
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const rejectBtn = document.getElementById('rejectCookies');
+
+    // Verifica si el usuario ya ha elegido
+    function checkCookieConsent() {
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent) {
+            cookieBanner.style.display = 'none';
+        } else {
+            cookieBanner.style.display = 'flex';
+        }
+    }
+
+    // Aceptar cookies
+    acceptBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieBanner.style.display = 'none';
+        // Aquí puedes agregar Google Analytics u otros scripts
+        loadAnalytics();
+    });
+
+    // Rechazar cookies
+    rejectBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'rejected');
+        cookieBanner.style.display = 'none';
+    });
+
+    // Cargar Google Analytics (opcional)
+    function loadAnalytics() {
+        // Descomenta y agrega tu ID de Google Analytics
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag(){dataLayer.push(arguments);}
+        // gtag('js', new Date());
+        // gtag('config', 'TU_ID_ANALYTICS');
+    }
+
+    // Verificar consentimiento al cargar
+    window.addEventListener('DOMContentLoaded', checkCookieConsent);
+</script>
 </body>
 </html>
